@@ -1,20 +1,30 @@
 import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int hour = sc.nextInt();
-    int minute = sc.nextInt();
-    sc.close();
+    int dice1 = sc.nextInt();
+    int dice2 = sc.nextInt();
+    int dice3 = sc.nextInt();
 
-    minute -= 45;
-    if(minute < 0) {
-      minute += 60;
-      hour--;
+    Set<Integer> values = new HashSet<>();
+    values.add(dice1);
+    values.add(dice2);
+    values.add(dice3);
+
+    if(values.size() == 1) {
+      // 세개 값이 모두 같음
+      System.out.println(values);
+
+    }else if(values.size() == 2) {
+      // 두개 값이 같음
+      System.out.println(values);
+
+    }else {
+      // 모두 다름
+      System.out.println();
     }
-
-    if(hour < 0) hour = 23;
-
-    System.out.println(hour + " " + minute);
   }
 }
